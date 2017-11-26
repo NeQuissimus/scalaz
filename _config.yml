@@ -1,0 +1,11 @@
+name: Scalaz
+baseurl: /scalaz
+description: Scalaz examples
+highlighter: rouge
+docs: true
+collections:
+  tut:
+    output: true
+version: 0.1-SNAPSHOT
+org: scalaz-example
+markdown: kramdown
