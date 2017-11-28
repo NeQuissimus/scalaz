@@ -1,74 +1,221 @@
-<html><head><title>Scalaz</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Scalaz contributors" /><meta name="description" content="Scalaz examples" /><meta name="og:image" content="/img/poster.png" /><meta name="og:title" content="Scalaz" /><meta name="og:site_name" content="Scalaz" /><meta name="og:url" content="" /><meta name="og:type" content="website" /><meta name="og:description" content="Scalaz examples" /><link rel="icon" type="image/png" href="/img/favicon.png" /><meta name="twitter:title" content="Scalaz" /><meta name="twitter:image" content="img/poster.png" /><meta name="twitter:description" content="Scalaz examples" /><meta name="twitter:card" content="summary_large_image" /><link rel="icon" type="image/png" sizes="512x512" href="/img/favicon.png" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link rel="stylesheet" href="/highlight/styles/default.css" /><link rel="stylesheet" href="/css/style.css" /><link rel="stylesheet" href="/css/palette.css" /><link rel="stylesheet" href="/css/codemirror.css" /><link rel="stylesheet" href="/css/kazari-style.css" /><link rel="stylesheet" href="/css/monokai.css" /></head><body class="docs"><div id="wrapper"><div id="sidebar-wrapper"><ul id="sidebar" class="sidebar-nav"><li class="sidebar-brand"><a href="/" class="brand"><div class="brand-wrapper"><span>Scalaz</span></div></a></li> <li><a href="/index.html" class="">Home</a></li> <li><a href="/typeclass/index.html" class="">Type classes</a> <ul class="sub_section"> <li><a href="/typeclass/Show.html" class="">Show</a></li></ul></li> <li><a href="/data/index.html" class="">Data classes</a> <ul class="sub_section"> <li><a href="/data/Disjunction.html" class="">Disjunction</a></li> <li><a href="/data/Forall.html" class=" active ">Forall</a></li></ul></li></ul></div><div id="page-content-wrapper"><div class="nav"><div class="container-fluid"><div class="row"><div class="col-lg-12"><div class="action-menu pull-left clearfix"><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a></div><ul class="pull-right"><li id="gh-eyes-item" class="hidden-xs"><a href="https://github.com/scalaz/scalaz"><i class="fa fa-eye"></i><span>WATCH<span id="eyes" class="label label-default">--</span></span></a></li><li id="gh-stars-item" class="hidden-xs"><a href="https://github.com/scalaz/scalaz"><i class="fa fa-star-o"></i><span>STARS<span id="stars" class="label label-default">--</span></span></a></li><li><a href="#" onclick="shareSiteTwitter('Scalaz Scalaz examples');"><i class="fa fa-twitter"></i></a></li><li><a href="#" onclick="shareSiteFacebook('Scalaz Scalaz examples');"><i class="fa fa-facebook"></i></a></li><li><a href="#" onclick="shareSiteGoogle();"><i class="fa fa-google-plus"></i></a></li></ul></div></div></div></div><div id="content" data-github-owner="scalaz" data-github-repo="scalaz"><div class="content-wrapper"><section><h1 id="forall">Forall</h1>
+<html><head><title>Scalaz: Polymorphic values</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Scalaz contributors" /><meta name="description" content="Scalaz examples" /><meta name="og:image" content="/scalaz/img/poster.png" /><meta name="og:title" content="Scalaz: Polymorphic values" /><meta name="og:site_name" content="Scalaz" /><meta name="og:url" content="" /><meta name="og:type" content="website" /><meta name="og:description" content="Scalaz examples" /><link rel="icon" type="image/png" href="/scalaz/img/favicon.png" /><meta name="twitter:title" content="Scalaz: Polymorphic values" /><meta name="twitter:image" content="img/poster.png" /><meta name="twitter:description" content="Scalaz examples" /><meta name="twitter:card" content="summary_large_image" /><link rel="icon" type="image/png" sizes="512x512" href="/scalaz/img/favicon.png" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link rel="stylesheet" href="/scalaz/highlight/styles/default.css" /><link rel="stylesheet" href="/scalaz/css/style.css" /><link rel="stylesheet" href="/scalaz/css/palette.css" /><link rel="stylesheet" href="/scalaz/css/codemirror.css" /></head><body class="docs"><div id="wrapper"><div id="sidebar-wrapper"><ul id="sidebar" class="sidebar-nav"><li class="sidebar-brand"><a href="/scalaz/" class="brand"><div class="brand-wrapper"><span>Scalaz</span></div></a></li> <li><a href="/scalaz/index.html" class="">Home</a></li> <li><a href="/scalaz/typeclass/index.html" class="">Type classes</a> <ul class="sub_section"> <li><a href="/scalaz/typeclass/Applicative.html" class="">Applicative</a></li> <li><a href="/scalaz/typeclass/Apply.html" class="">Apply</a></li> <li><a href="/scalaz/typeclass/Functor.html" class="">Functor</a></li> <li><a href="/scalaz/typeclass/Monad.html" class="">Monad</a></li> <li><a href="/scalaz/typeclass/Monoid.html" class="">Monoid</a></li> <li><a href="/scalaz/typeclass/Semigroup.html" class="">Semigroup</a></li> <li><a href="/scalaz/typeclass/Show.html" class="">Show</a></li></ul></li> <li><a href="/scalaz/data/index.html" class="">Data classes</a> <ul class="sub_section"> <li><a href="/scalaz/data/Disjunction.html" class="">Disjunction</a></li> <li><a href="/scalaz/data/Forall.html" class="">Forall</a></li> <li><a href="/scalaz/data/Maybe.html" class="">Maybe</a></li> <li><a href="/scalaz/data/Maybe2.html" class="">Maybe2</a></li> <li><a href="/scalaz/data/These.html" class="">These</a></li></ul></li></ul></div><div id="page-content-wrapper"><div class="nav"><div class="container-fluid"><div class="row"><div class="col-lg-12"><div class="action-menu pull-left clearfix"><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a></div><ul class="pull-right"><li id="gh-eyes-item" class="hidden-xs"><a href="https://github.com/scalaz/scalaz"><i class="fa fa-eye"></i><span>WATCH<span id="eyes" class="label label-default">--</span></span></a></li><li id="gh-stars-item" class="hidden-xs"><a href="https://github.com/scalaz/scalaz"><i class="fa fa-star-o"></i><span>STARS<span id="stars" class="label label-default">--</span></span></a></li><li><a href="#" onclick="shareSiteTwitter('Scalaz Scalaz examples');"><i class="fa fa-twitter"></i></a></li><li><a href="#" onclick="shareSiteFacebook('Scalaz Scalaz examples');"><i class="fa fa-facebook"></i></a></li><li><a href="#" onclick="shareSiteGoogle();"><i class="fa fa-google-plus"></i></a></li></ul></div></div></div></div><div id="content" data-github-owner="scalaz" data-github-repo="scalaz"><div class="content-wrapper"><section><h1 id="polymorphic-values">Polymorphic values</h1>
 
-<p><code class="highlighter-rouge">Forall</code> allows for the defition of types, whose behaviour is valid for any inhabiting type; they are universally quantified types.</p>
+<p>Scala has polymorphic types (<code class="highlighter-rouge">class Foo[A]</code>, <code class="highlighter-rouge">type Bar[A]</code>, …)
+and polymorphic methods (<code class="highlighter-rouge">def foo[A]</code>), but it lacks polymorphic <em>values</em>.
+As a special case, it lacks polymorphic functions (since functions are values).</p>
+
+<p>A value polymorphic in type <code class="highlighter-rouge">A</code> is a <em>value</em> that behaves uniformly over <em>all</em> types <code class="highlighter-rouge">A</code>.
+It is also called a <em>universally quantified</em> value.</p>
+
+<p>The advantage of polymorphic values over polymorphic methods is
+that values, unlike methods, can be passed as arguments to other methods.</p>
+
+<p>Scalaz encoding of polymorphic values also has the property that
+<em>instantiating</em> a polymorphic value at a specific type is a no-op at runtime.
+The polymorphic value itself already is a value of the specific type as well.
+All instantiations of a polymorphic value share the same runtime object.</p>
+
+<p>Scalaz datatype <code class="highlighter-rouge">Forall[F[_]]</code> (also aliased as <code class="highlighter-rouge">∀[F[_]]</code>)
+represents values polymorphic in one type variable.</p>
+
+<p>Datatype <code class="highlighter-rouge">Forall2[F[_, _]]</code> (also aliased as <code class="highlighter-rouge">∀∀[F[_, _]]</code>)
+represents values polymorphic in two type variables.</p>
+
+<p>Polymorphic values come up naturally in many circumstances,
+as is illustrated by the examples below.</p>
 
 <p><strong>Typical imports</strong></p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scalaz.Prelude._</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scalaz._</span>
 </code></pre>
 </div>
 
-<h2 id="instance-creation">Instance creation</h2>
+<h2 id="polymorphic-identity-function">Polymorphic identity function</h2>
 
-<p>Create instances using <code class="highlighter-rouge">of</code> or <code class="highlighter-rouge">mk</code></p>
+<p>In Scala, we can define the polymorphic identity <em>method</em>:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">identity</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">identity</span><span class="k">:</span> <span class="err">[</span><span class="kt">A</span><span class="err">]</span><span class="o">(</span><span class="kt">a:</span> <span class="kt">A</span><span class="o">)</span><span class="kt">A</span>
+</code></pre>
+</div>
+
+<p>But how would we define it as a <em>value</em> (of a function type) that
+works on any type? Let’s start by writing down its type:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">IdFun</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">A</span> <span class="k">=&gt;</span> <span class="n">A</span>
+<span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">IdFun</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">PolyIdFun</span> <span class="o">=</span> <span class="o">∀[</span><span class="kt">IdFun</span><span class="o">]</span>
+<span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">PolyIdFun</span>
+</code></pre>
+</div>
+
+<p>To create a value of <code class="highlighter-rouge">PolyIdFun</code>, we can use the <code class="highlighter-rouge">∀.mk</code> method:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">identity</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">PolyIdFun</span><span class="o">].</span><span class="n">from</span><span class="o">(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">identity</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[[</span><span class="kt">A</span><span class="o">]</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$4500</span><span class="o">/</span><span class="mi">1417334987</span><span class="k">@</span><span class="mf">61f</span><span class="mi">2</span><span class="n">a094</span>
+</code></pre>
+</div>
+
+<p>The body of the implementation (here <code class="highlighter-rouge">a =&gt; a</code>) has to be typable
+as <code class="highlighter-rouge">A =&gt; A</code> for any type <code class="highlighter-rouge">A</code>.</p>
+
+<p>Expanding the type alias <code class="highlighter-rouge">PolyIdFun</code>, the above is equivalent to</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">identity</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">∀</span><span class="o">[</span><span class="kt">IdFun</span><span class="o">]].</span><span class="n">from</span><span class="o">(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">identity</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[[</span><span class="kt">A</span><span class="o">]</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$4501</span><span class="o">/</span><span class="mi">363687844</span><span class="k">@</span><span class="mf">4d</span><span class="mi">603175</span>
+</code></pre>
+</div>
+
+<p>Alternatively, we can use the <code class="highlighter-rouge">∀.of</code> method and omit the <code class="highlighter-rouge">∀</code> in the type parameter:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">identity</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">IdFun</span><span class="o">](</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">identity</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[[</span><span class="kt">A</span><span class="o">]</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$4502</span><span class="o">/</span><span class="mi">55413168</span><span class="nd">@fa7b276</span>
+</code></pre>
+</div>
+
+<p>With some help from <a href="https://github.com/non/kind-projector/">kind-projector</a>,
+we can avoid intermediate type aliases altogether:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">identity</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">λ</span><span class="o">[</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]](</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">identity</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[[</span><span class="kt">A</span><span class="o">]</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$4513</span><span class="o">/</span><span class="mi">917933169</span><span class="k">@</span><span class="mf">517064f</span>
+</code></pre>
+</div>
+
+<p>To invoke this polymorphic function, we first <em>instantiate</em> it at a specific type:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="n">identity</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="nc">$$Lambda$4513</span><span class="o">/</span><span class="mi">917933169</span><span class="k">@</span><span class="mf">517064f</span>
+</code></pre>
+</div>
+
+<p>and then apply it to an argument</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="n">identity</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">5</span><span class="o">)</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">5</span>
+</code></pre>
+</div>
+
+<h2 id="empty-data-structures">Empty data structures</h2>
+
+<p>Consider a generic data structure, such as <code class="highlighter-rouge">List[A]</code> or <code class="highlighter-rouge">Option[A]</code>.
+The empty case (like <code class="highlighter-rouge">Nil</code> or <code class="highlighter-rouge">None</code>) can be the same runtime object
+for all types <code class="highlighter-rouge">A</code>.</p>
+
+<p>The way this is achieved in the Scala standard library is to declare
+such data structures covariant (<code class="highlighter-rouge">List[+A]</code>, <code class="highlighter-rouge">Option[+A]</code>, …)
+and have the empty case be an instantiation of the data structure
+at the bottom type <code class="highlighter-rouge">Nothing</code> (<code class="highlighter-rouge">object Nil extends List[Nothing]</code>).</p>
+
+<p>But covariance is not necessary (and often undesirable).
+These empty values are in fact polymorphic.
+We can define an invariant version of <code class="highlighter-rouge">Option</code> with the empty case
+shared across all types:</p>
+
+<!--
+tut does not support :paste mode,
+which is required to define companion objects in the REPL.
+See https://github.com/tpolecat/tut/issues/62.
+-->
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">IOption</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="nc">case</span> <span class="k">class</span> <span class="nc">ISome</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">IOption</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">INone</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">private</span><span class="o">()</span> <span class="k">extends</span> <span class="nc">IOption</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+
+<span class="k">object</span> <span class="nc">INone</span> <span class="o">{</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">instance</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">IOption</span><span class="o">](</span><span class="k">new</span> <span class="nc">INone</span><span class="o">())</span>
+
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A</span><span class="o">]()</span><span class="k">:</span> <span class="kt">IOption</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">instance</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>We can also create polymorphic versions of the standard empty structures:</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">nil</span><span class="k">:</span> <span class="kt">∀</span><span class="err">[</span><span class="kt">List</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">List</span><span class="o">](</span><span class="nc">Nil</span><span class="o">)</span>
-<span class="n">nil</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀</span><span class="err">[</span><span class="kt">List</span><span class="err">]</span> <span class="o">=</span> <span class="nc">List</span><span class="o">()</span>
+<span class="n">nil</span><span class="k">:</span> <span class="kt">scalaz.∀</span><span class="err">[</span><span class="kt">List</span><span class="err">]</span> <span class="o">=</span> <span class="nc">List</span><span class="o">()</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">emptyMap</span><span class="k">:</span> <span class="kt">∀∀</span><span class="err">[</span><span class="kt">Map</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">Map</span><span class="o">](</span><span class="nc">Map</span><span class="o">())</span>
-<span class="n">emptyMap</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀∀</span><span class="err">[</span><span class="kt">Map</span><span class="err">]</span> <span class="o">=</span> <span class="nc">Map</span><span class="o">()</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">nil1</span><span class="k">:</span> <span class="kt">∀</span><span class="err">[</span><span class="kt">List</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">∀</span><span class="o">[</span><span class="kt">List</span><span class="o">]].</span><span class="n">from</span><span class="o">(</span><span class="nc">Nil</span><span class="o">)</span>
-<span class="n">nil1</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀</span><span class="err">[</span><span class="kt">List</span><span class="err">]</span> <span class="o">=</span> <span class="nc">List</span><span class="o">()</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">emptyMap1</span><span class="k">:</span> <span class="kt">∀∀</span><span class="err">[</span><span class="kt">Map</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">∀∀</span><span class="o">[</span><span class="kt">Map</span><span class="o">]].</span><span class="n">from</span><span class="o">(</span><span class="nc">Map</span><span class="o">())</span>
-<span class="n">emptyMap1</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀∀</span><span class="err">[</span><span class="kt">Map</span><span class="err">]</span> <span class="o">=</span> <span class="nc">Map</span><span class="o">()</span>
+<span class="n">emptyMap</span><span class="k">:</span> <span class="kt">scalaz.∀∀</span><span class="err">[</span><span class="kt">Map</span><span class="err">]</span> <span class="o">=</span> <span class="nc">Map</span><span class="o">()</span>
 </code></pre>
 </div>
 
 <h2 id="universally-quantified-semigroup">Universally quantified Semigroup</h2>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.typeclass.Semigroup</span>
-<span class="k">import</span> <span class="nn">scalaz.typeclass.Semigroup</span>
+<p>The typeclass</p>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">listSemigroup</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span><span class="k">:</span> <span class="kt">Semigroup</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Semigroup</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="o">{</span>
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">append</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">y</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="nc">List</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span> <span class="k">=</span> <span class="n">x</span> <span class="o">++</span> <span class="n">y</span>
-     <span class="o">|</span> <span class="o">}</span>
-<span class="n">listSemigroup</span><span class="k">:</span> <span class="err">[</span><span class="kt">A</span><span class="err">]</span><span class="o">=&gt;</span> <span class="n">scalaz</span><span class="o">.</span><span class="n">typeclass</span><span class="o">.</span><span class="nc">Semigroup</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Plus</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">plus</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">y</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">F</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">Plus</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="k">=</span> <span class="o">∀[</span><span class="kt">λ</span><span class="o">[</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">Semigroup</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]]]]</span>
+<p>is equivalently just a polymorphic semigroup:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">Plus</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="k">=</span> <span class="o">∀[</span><span class="kt">λ</span><span class="o">[</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">Semigroup</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]]]]</span>
 <span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">Plus</span>
+</code></pre>
+</div>
+
+<p>Here is an instance for list:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.typeclass.SemigroupClass</span>
+<span class="k">import</span> <span class="nn">scalaz.typeclass.SemigroupClass</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">listSemigroup</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span><span class="k">:</span> <span class="kt">Semigroup</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="n">instanceOf</span><span class="o">(</span><span class="k">new</span> <span class="nc">SemigroupClass</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="o">{</span>
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">append</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">y</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="nc">List</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span> <span class="k">=</span> <span class="n">x</span> <span class="o">++</span> <span class="n">y</span>
+     <span class="o">|</span> <span class="o">})</span>
+<span class="n">listSemigroup</span><span class="k">:</span> <span class="err">[</span><span class="kt">A</span><span class="err">]</span><span class="o">=&gt;</span> <span class="n">scalaz</span><span class="o">.</span><span class="nc">Semigroup</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">listPlus</span><span class="k">:</span> <span class="kt">Plus</span><span class="o">[</span><span class="kt">List</span><span class="o">]</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">Plus</span><span class="o">[</span><span class="kt">List</span><span class="o">]].</span><span class="n">from</span><span class="o">(</span><span class="n">listSemigroup</span><span class="o">)</span>
-<span class="n">listPlus</span><span class="k">:</span> <span class="kt">Plus</span><span class="o">[</span><span class="kt">List</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">31997</span><span class="n">c0c</span>
+<span class="n">listPlus</span><span class="k">:</span> <span class="kt">Plus</span><span class="o">[</span><span class="kt">List</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">419516f</span><span class="mi">6</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">listPlus</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span><span class="n">append</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="nc">List</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">))</span> <span class="o">==</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">listPlus</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span><span class="n">append</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="nc">List</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">))</span>
+<span class="n">res2</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
 </code></pre>
 </div>
 
 <h2 id="natural-transformation">Natural transformation</h2>
 
+<p>Polymorphic functions are natural transformations.
+They are a generalization of the polymorphic identity function above.</p>
+
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">~&gt;</span><span class="err">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">],</span> <span class="n">G</span><span class="o">[</span><span class="k">_</span><span class="o">]</span><span class="err">]</span> <span class="k">=</span> <span class="o">∀[</span><span class="kt">λ</span><span class="o">[</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=&gt;</span> <span class="kt">G</span><span class="o">[</span><span class="kt">A</span><span class="o">]]]</span>
 <span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">$tilde$greater</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">headOption</span><span class="k">:</span> <span class="kt">List</span> <span class="kt">~&gt;</span> <span class="kt">Option</span> <span class="o">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">List</span> <span class="kt">~&gt;</span> <span class="kt">Option</span><span class="o">].</span><span class="n">from</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">headOption</span><span class="o">)</span>
-<span class="n">headOption</span><span class="k">:</span> <span class="kt">List</span> <span class="kt">~&gt;</span> <span class="kt">Option</span> <span class="o">=</span> <span class="nc">$$Lambda$4533</span><span class="o">/</span><span class="mi">1300670751</span><span class="k">@</span><span class="mi">78</span><span class="n">aa5551</span>
+<span class="n">headOption</span><span class="k">:</span> <span class="kt">List</span> <span class="kt">~&gt;</span> <span class="kt">Option</span> <span class="o">=</span> <span class="nc">$$Lambda$4571</span><span class="o">/</span><span class="mi">1008333127</span><span class="k">@</span><span class="mf">3d95d</span><span class="n">b21</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">headOption</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">))</span> <span class="o">==</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
-<span class="n">res1</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">headOption</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">))</span>
+<span class="n">res3</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</code></pre>
+</div>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">class</span> <span class="nc">NaturalTransformationOps</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>, <span class="kt">G</span><span class="o">[</span><span class="k">_</span><span class="o">]](</span><span class="n">trans</span><span class="k">:</span> <span class="kt">F</span> <span class="kt">~&gt;</span> <span class="kt">G</span><span class="o">)</span> <span class="o">{</span>
+<p>The above <code class="highlighter-rouge">identity</code> function is a special case of natural transformation:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">identity</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">Id</span> <span class="kt">~&gt;</span> <span class="kt">Id</span><span class="o">].</span><span class="n">from</span><span class="o">(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">identity</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[[</span><span class="kt">A</span><span class="o">]</span><span class="kt">A</span> <span class="k">=&gt;</span> <span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$4572</span><span class="o">/</span><span class="mi">1431321992</span><span class="k">@</span><span class="mi">78042</span><span class="n">e35</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">identity</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<span class="n">res4</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">5</span>
+</code></pre>
+</div>
+
+<p>We can also apply a polymorphic function to a polymorphic value and
+obtain a polymorphic result.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">class</span> <span class="nc">NaturalTransformationOps</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>, <span class="kt">G</span><span class="o">[</span><span class="k">_</span><span class="o">]](</span><span class="n">trans</span><span class="k">:</span> <span class="kt">F</span> <span class="kt">~&gt;</span> <span class="kt">G</span><span class="o">)</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">$</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">∀</span><span class="err">[</span><span class="kt">F</span><span class="err">]</span><span class="o">)</span><span class="k">:</span> <span class="kt">∀</span><span class="err">[</span><span class="kt">G</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">G</span><span class="o">](</span><span class="n">trans</span><span class="o">.</span><span class="n">apply</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="n">apply</span><span class="o">))</span>
      <span class="o">|</span> <span class="o">}</span>
 <span class="n">defined</span> <span class="k">class</span> <span class="nc">NaturalTransformationOps</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">none</span><span class="k">:</span> <span class="kt">∀</span><span class="err">[</span><span class="kt">Option</span><span class="err">]</span> <span class="o">=</span> <span class="n">headOption</span> <span class="n">$</span> <span class="n">nil</span>
-<span class="n">none</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀</span><span class="err">[</span><span class="kt">Option</span><span class="err">]</span> <span class="o">=</span> <span class="nc">None</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">headOption</span> <span class="n">$</span> <span class="n">nil</span>
+<span class="n">res5</span><span class="k">:</span> <span class="kt">scalaz.∀</span><span class="err">[</span><span class="kt">Option</span><span class="err">]</span> <span class="o">=</span> <span class="nc">None</span>
 </code></pre>
 </div>
 
-<h2 id="binatural-transformation">Binatural transformation</h2>
+<h3 id="binatural-transformation">Binatural transformation</h3>
+
+<p>Function polymorphic in two type variables.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">type</span> <span class="kt">~~&gt;</span><span class="err">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span>, <span class="k">_</span><span class="o">],</span> <span class="n">G</span><span class="o">[</span><span class="k">_</span>, <span class="k">_</span><span class="o">]</span><span class="err">]</span> <span class="k">=</span> <span class="o">∀∀[</span><span class="kt">λ</span><span class="o">[(</span><span class="kt">α</span>, <span class="kt">β</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="kt">F</span><span class="o">[</span><span class="kt">α</span>, <span class="kt">β</span><span class="o">]</span> <span class="k">=&gt;</span> <span class="kt">G</span><span class="o">[</span><span class="kt">α</span>, <span class="kt">β</span><span class="o">]]]</span>
 <span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">$tilde$tilde$greater</span>
@@ -77,10 +224,10 @@
 <span class="n">defined</span> <span class="k">type</span> <span class="kt">alias</span> <span class="kt">Option2</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">pick</span><span class="k">:</span> <span class="kt">Map</span> <span class="kt">~~&gt;</span> <span class="kt">Option2</span> <span class="o">=</span> <span class="o">∀∀.</span><span class="n">mk</span><span class="o">[</span><span class="kt">Map</span> <span class="kt">~~&gt;</span> <span class="kt">Option2</span><span class="o">].</span><span class="n">from</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">headOption</span><span class="o">)</span>
-<span class="n">pick</span><span class="k">:</span> <span class="kt">Map</span> <span class="kt">~~&gt;</span> <span class="kt">Option2</span> <span class="o">=</span> <span class="nc">$$Lambda$4566</span><span class="o">/</span><span class="mi">66165227</span><span class="k">@</span><span class="mi">44</span><span class="n">a63f63</span>
+<span class="n">pick</span><span class="k">:</span> <span class="kt">Map</span> <span class="kt">~~&gt;</span> <span class="kt">Option2</span> <span class="o">=</span> <span class="nc">$$Lambda$4605</span><span class="o">/</span><span class="mi">281392422</span><span class="k">@</span><span class="mf">592f</span><span class="mi">4837</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">pick</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">](</span><span class="nc">Map</span><span class="o">(</span><span class="s">"hi"</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="o">))</span> <span class="o">==</span> <span class="nc">Some</span><span class="o">(</span><span class="s">"hi"</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="o">)</span>
-<span class="n">res2</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">pick</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">](</span><span class="nc">Map</span><span class="o">(</span><span class="s">"hi"</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="o">))</span>
+<span class="n">res6</span><span class="k">:</span> <span class="kt">Option2</span><span class="o">[</span><span class="kt">String</span>,<span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">((</span><span class="n">hi</span><span class="o">,</span><span class="mi">5</span><span class="o">))</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">class</span> <span class="nc">BinaturalTransformationOps</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span>, <span class="k">_</span><span class="o">]</span>, <span class="kt">G</span><span class="o">[</span><span class="k">_</span>, <span class="k">_</span><span class="o">]](</span><span class="n">trans</span><span class="k">:</span> <span class="kt">F</span> <span class="kt">~~&gt;</span> <span class="kt">G</span><span class="o">)</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">$</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">∀∀</span><span class="err">[</span><span class="kt">F</span><span class="err">]</span><span class="o">)</span><span class="k">:</span> <span class="kt">∀∀</span><span class="err">[</span><span class="kt">G</span><span class="err">]</span> <span class="o">=</span> <span class="o">∀∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">G</span><span class="o">](</span><span class="n">trans</span><span class="o">.</span><span class="n">apply</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="n">apply</span><span class="o">))</span>
@@ -88,16 +235,35 @@
 <span class="n">defined</span> <span class="k">class</span> <span class="nc">BinaturalTransformationOps</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">none2</span><span class="k">:</span> <span class="kt">∀∀</span><span class="err">[</span><span class="kt">Option2</span><span class="err">]</span> <span class="o">=</span> <span class="n">pick</span> <span class="n">$</span> <span class="n">emptyMap</span>
-<span class="n">none2</span><span class="k">:</span> <span class="kt">scalaz.Prelude.∀∀</span><span class="err">[</span><span class="kt">Option2</span><span class="err">]</span> <span class="o">=</span> <span class="nc">None</span>
+<span class="n">none2</span><span class="k">:</span> <span class="kt">scalaz.∀∀</span><span class="err">[</span><span class="kt">Option2</span><span class="err">]</span> <span class="o">=</span> <span class="nc">None</span>
 </code></pre>
 </div>
-</section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/highlight/highlight.pack.js"></script><script>hljs.configure({
+
+<h2 id="restrictions">Restrictions</h2>
+
+<p>Since the same runtime object is shared among all instantiations
+of a polymorphic value, it is not a good idea to create polymorphic
+values of mutable data types. It even leads to unsoundness:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Foo</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="k">var</span> <span class="n">elems</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span>
+<span class="n">defined</span> <span class="k">class</span> <span class="nc">Foo</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">foo</span> <span class="k">=</span> <span class="o">∀.</span><span class="n">of</span><span class="o">[</span><span class="kt">Foo</span><span class="o">](</span><span class="k">new</span> <span class="nc">Foo</span><span class="o">(</span><span class="nc">Nil</span><span class="o">))</span>
+<span class="n">foo</span><span class="k">:</span> <span class="kt">scalaz.∀.Forall</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Foo</span><span class="k">@</span><span class="mi">172</span><span class="n">ee861</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">foo</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span><span class="n">elems</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+<span class="n">foo</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span><span class="n">elems</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+</code></pre>
+</div>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">s</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">foo</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">elems</span><span class="o">.</span><span class="n">head</span>
+<span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="nc">ClassCastException</span><span class="k">:</span> <span class="kt">java.lang.Integer</span> <span class="kt">cannot</span> <span class="kt">be</span> <span class="kt">cast</span> <span class="kt">to</span> <span class="kt">java.lang.String</span>
+  <span class="o">...</span> <span class="mi">43</span> <span class="n">elided</span>
+</code></pre>
+</div>
+</section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/scalaz/highlight/highlight.pack.js"></script><script>hljs.configure({
 languages:['scala','java','bash']
 });
 hljs.initHighlighting();
              </script><script>((window.gitter = {}).chat = {}).options = {
-room: 'scalaz/scalaz'};</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script><script src="/js/main.js"></script><script src="/js/kazari.js"></script><script>
-$(document).ready(function() {
-	kazari.KazariPlugin().decorateCode('https://scala-evaluator-212.herokuapp.com/eval', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.S2F6YXJp.Jl2eqMfw8IakJF93PjxTbrf-8YUJgX5OoOfy5JHE8Yw', '', 'monokai')
-})
-    </script></body></html>
+room: 'scalaz/scalaz'};</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script><script src="/scalaz/js/main.js"></script></body></html>
