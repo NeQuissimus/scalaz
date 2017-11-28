@@ -1,5 +1,5 @@
 name: Scalaz
-baseurl: /scalaz
+baseurl: ''
 description: Scalaz examples
 highlighter: rouge
 docs: true
