@@ -6,7 +6,7 @@
   color: #fff; }
 
 #site-footer {
-  background: #A62639; }
+  background: #491119; }
 
 ::-moz-selection {
   background: #ED2124;
@@ -51,11 +51,11 @@ body.docs {
     font-size: 18px; }
 
 .sidebar-nav > li a:hover {
-  background: #A62639; }
+  background: #491119; }
 .sidebar-nav > li a.active {
   border-left: 3px solid #ED2124;
   color: #fff; }
 .sidebar-nav > .sidebar-brand a {
-  background: #A62639; }
+  background: #491119; }
   .sidebar-nav > .sidebar-brand a:hover {
-    background: #A62639; }
+    background: #491119; }
