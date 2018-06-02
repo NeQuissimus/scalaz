@@ -1,11 +1,11 @@
 name: Scalaz
-baseurl: ''
+baseurl: /scalaz
 description: Scalaz examples
 highlighter: rouge
 docs: true
 collections:
   tut:
     output: true
-version: 921ccca7-SNAPSHOT
+version: 921ccca7+20180601-2225-SNAPSHOT
 org: org.scalaz
 markdown: kramdown
