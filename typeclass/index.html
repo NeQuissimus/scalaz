@@ -50,24 +50,28 @@ It defines that all its instances implement a method <code class="highlighter-ro
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.Scalaz._</span>
 <span class="k">import</span> <span class="nn">scalaz.Scalaz._</span>
 
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.data.Cord</span>
+<span class="k">import</span> <span class="nn">scalaz.data.Cord</span>
+
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.debug.DebugClass</span>
 <span class="k">import</span> <span class="nn">scalaz.debug.DebugClass</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BusinessObject</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">value</span><span class="k">:</span> <span class="kt">Long</span><span class="o">)</span>
 <span class="n">defined</span> <span class="k">class</span> <span class="nc">BusinessObject</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">businessObjectDebug</span><span class="k">:</span> <span class="kt">Debug</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">]</span> <span class="k">=</span> <span class="n">instanceOf</span><span class="o">[</span><span class="kt">DebugClass</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">]](</span><span class="n">b</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"BO[${b.id} = ${b.value}]"</span><span class="o">)</span>
-<span class="n">businessObjectDebug</span><span class="k">:</span> <span class="kt">scalaz.Scalaz.Debug</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$7146</span><span class="o">/</span><span class="mi">204196651</span><span class="k">@</span><span class="mf">1f</span><span class="n">e82562</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">businessObjectDebug</span><span class="k">:</span> <span class="kt">Debug</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">]</span> <span class="k">=</span> 
+     <span class="o">|</span>   <span class="nc">DebugClass</span><span class="o">.</span><span class="n">instance</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">](</span><span class="n">b</span> <span class="k">=&gt;</span> <span class="nc">Cord</span><span class="o">(</span><span class="n">s</span><span class="s">"BO[${b.id} = ${b.value}]"</span><span class="o">))</span>
+<span class="n">businessObjectDebug</span><span class="k">:</span> <span class="kt">scalaz.Scalaz.Debug</span><span class="o">[</span><span class="kt">BusinessObject</span><span class="o">]</span> <span class="k">=</span> <span class="n">scalaz</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="nc">DebugClass$$anon$1</span><span class="k">@</span><span class="mf">64670f</span><span class="mi">4</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="nc">BusinessObject</span><span class="o">(</span><span class="mi">1234L</span><span class="o">,</span> <span class="mi">1234567L</span><span class="o">).</span><span class="n">debug</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">BO</span><span class="o">[</span><span class="err">1234</span> <span class="kt">=</span> <span class="err">1234567</span><span class="o">]</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">scalaz.data.Cord</span> <span class="o">=</span> <span class="nc">BO</span><span class="o">[</span><span class="err">1234</span> <span class="kt">=</span> <span class="err">1234567</span><span class="o">]</span>
 </code></pre></div></div>
 
 <p>After showing that we can add behaviour, it should now be easy to see how type classes can be used as constraints for parametrically polymorphic functions.</p>
 
 <p>For example, we could define a function <code class="highlighter-rouge">loudDebug</code> as follows:</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">loudDebug</span><span class="o">[</span><span class="kt">A:</span> <span class="kt">Debug</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">=</span> <span class="n">a</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">toUpperCase</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">loudDebug</span><span class="o">[</span><span class="kt">A:</span> <span class="kt">Debug</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">=</span> <span class="n">a</span><span class="o">.</span><span class="n">debugs</span><span class="o">.</span><span class="n">toUpperCase</span>
 </code></pre></div></div>
 
 <p>Notice that the type parameter <code class="highlighter-rouge">A</code> now has a constraint that requires it have an instance of <code class="highlighter-rouge">Debug</code>.

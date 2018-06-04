@@ -17,7 +17,7 @@
 <span class="n">either2</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>,<span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Left</span><span class="o">(</span><span class="n">scalaz</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">fs</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span> <span class="k">=&gt;</span> <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Right</span><span class="o">(</span><span class="k">_</span> <span class="o">*</span> <span class="mi">2</span><span class="o">)</span>
-<span class="n">fs</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>,<span class="kt">Int</span> <span class="k">=&gt;</span> <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Right</span><span class="o">(</span><span class="nc">$$Lambda$7051</span><span class="o">/</span><span class="mi">608376029</span><span class="k">@</span><span class="mf">60f</span><span class="n">fe8c2</span><span class="o">)</span>
+<span class="n">fs</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>,<span class="kt">Int</span> <span class="k">=&gt;</span> <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Right</span><span class="o">(</span><span class="nc">$$Lambda$7433</span><span class="o">/</span><span class="mi">1681572196</span><span class="k">@</span><span class="mi">52</span><span class="n">ec164a</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">either1</span> <span class="o">===</span> <span class="n">either2</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">scalaz.Boolean</span> <span class="o">=</span> <span class="kc">false</span>
@@ -31,11 +31,11 @@
      <span class="o">|</span> <span class="o">)</span>
 <span class="n">res2</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>,<span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Left</span><span class="o">(</span><span class="nc">SCALAZ</span><span class="o">)</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">either1</span><span class="o">.</span><span class="n">debug</span>
-<span class="n">res3</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Right</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">either1</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">toString</span>
+<span class="n">res3</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Right</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">either2</span><span class="o">.</span><span class="n">debug</span>
-<span class="n">res4</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Left</span><span class="o">(</span><span class="n">scalaz</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">either2</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">toString</span>
+<span class="n">res4</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Left</span><span class="o">(</span><span class="n">scalaz</span><span class="o">)</span>
 </code></pre></div></div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/scalaz/highlight/highlight.pack.js"></script><script>hljs.configure({
 languages:['scala','java','bash']

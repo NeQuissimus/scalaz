@@ -11,7 +11,7 @@ By providing instances of this typeclass, a type explicitly defines that it can 
 <h1 id="built-in-instances">Built-in instances</h1>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="s">"Scalaz 8"</span><span class="o">.</span><span class="n">debug</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Scalaz</span> <span class="mi">8</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">scalaz.data.Cord</span> <span class="o">=</span> <span class="nc">Scalaz</span> <span class="mi">8</span>
 </code></pre></div></div>
 
 <h1 id="instance-declaration">Instance declaration</h1>
@@ -19,11 +19,15 @@ By providing instances of this typeclass, a type explicitly defines that it can 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.debug.DebugClass</span>
 <span class="k">import</span> <span class="nn">scalaz.debug.DebugClass</span>
 
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.data.Cord</span>
+<span class="k">import</span> <span class="nn">scalaz.data.Cord</span>
+
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Foo</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
 <span class="n">defined</span> <span class="k">class</span> <span class="nc">Foo</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">fooDebug</span><span class="k">:</span> <span class="kt">Debug</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> <span class="n">instanceOf</span><span class="o">[</span><span class="kt">DebugClass</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]](</span><span class="n">f</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"Foo[${f.a}]"</span><span class="o">)</span>
-<span class="n">fooDebug</span><span class="k">:</span> <span class="kt">scalaz.Scalaz.Debug</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$$Lambda$6896</span><span class="o">/</span><span class="mi">1815900912</span><span class="k">@</span><span class="mf">7d10d</span><span class="n">ecc</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">fooDebug</span><span class="k">:</span> <span class="kt">Debug</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> 
+     <span class="o">|</span>   <span class="nc">DebugClass</span><span class="o">.</span><span class="n">instance</span><span class="o">[</span><span class="kt">Foo</span><span class="o">](</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="nc">Cord</span><span class="o">.</span><span class="n">wrap</span><span class="o">(</span><span class="s">"Foo["</span><span class="o">,</span> <span class="nc">Cord</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="n">toString</span><span class="o">),</span> <span class="s">"]"</span><span class="o">))</span>
+<span class="n">fooDebug</span><span class="k">:</span> <span class="kt">scalaz.Scalaz.Debug</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]</span> <span class="k">=</span> <span class="n">scalaz</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="nc">DebugClass$$anon$1</span><span class="k">@</span><span class="mf">239f2d</span><span class="mi">64</span>
 </code></pre></div></div>
 
 <h1 id="usage">Usage</h1>
@@ -32,13 +36,13 @@ By providing instances of this typeclass, a type explicitly defines that it can 
 <span class="n">bad</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Foo</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">good</span> <span class="k">=</span> <span class="nc">Foo</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="n">debug</span>
-<span class="n">good</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Foo</span><span class="o">[</span><span class="err">1</span><span class="o">]</span>
+<span class="n">good</span><span class="k">:</span> <span class="kt">scalaz.data.Cord</span> <span class="o">=</span> <span class="nc">Foo</span><span class="o">[</span><span class="kt">Foo</span><span class="o">(</span><span class="err">1</span><span class="o">)]</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scalaz.data.Maybe</span>
 <span class="k">import</span> <span class="nn">scalaz.data.Maybe</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="nc">Maybe</span><span class="o">.</span><span class="n">just</span><span class="o">(</span><span class="nc">Foo</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="n">debug</span>
-<span class="n">res1</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Just</span><span class="o">(</span><span class="nc">Foo</span><span class="o">[</span><span class="err">1</span><span class="o">])</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">scalaz.data.Cord</span> <span class="o">=</span> <span class="nc">Just</span><span class="o">(</span><span class="nc">Foo</span><span class="o">[</span><span class="kt">Foo</span><span class="o">(</span><span class="err">1</span><span class="o">)])</span>
 </code></pre></div></div>
 
 <p><em>Note that the <code class="highlighter-rouge">Debug</code> instance for <a href="../data/Maybe.html">Maybe</a> resolves against the <code class="highlighter-rouge">Debug</code> instance for <code class="highlighter-rouge">Foo</code>.</em></p>
@@ -58,13 +62,13 @@ Inside the <code class="highlighter-rouge">z</code> String interpolation, only o
 <span class="n">bar</span><span class="k">:</span> <span class="kt">Bar</span> <span class="o">=</span> <span class="nc">Bar</span><span class="o">(</span><span class="mi">234</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">interpolated</span> <span class="k">=</span> <span class="n">z</span><span class="s">"${foo}"</span>
-<span class="n">interpolated</span><span class="k">:</span> <span class="kt">scalaz.String</span> <span class="o">=</span> <span class="nc">Foo</span><span class="o">[</span><span class="err">123</span><span class="o">]</span>
+<span class="n">interpolated</span><span class="k">:</span> <span class="kt">scalaz.data.Cord</span> <span class="o">=</span> <span class="nc">Foo</span><span class="o">[</span><span class="kt">Foo</span><span class="o">(</span><span class="err">123</span><span class="o">)]</span>
 </code></pre></div></div>
 
 <p>The following fails to compile as there is no <code class="highlighter-rouge">Debug</code> instance for <code class="highlighter-rouge">Bar</code></p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="n">z</span><span class="s">"${bar}"</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">20</span><span class="k">:</span> <span class="kt">error:</span> <span class="kt">Cannot</span> <span class="kt">use</span> <span class="kt">the</span> <span class="kt">`z`</span> <span class="kt">interpolator</span> <span class="kt">to</span> <span class="kt">interpolate</span> <span class="kt">a</span> <span class="kt">value</span> <span class="kt">of</span> <span class="k">type</span> <span class="kt">Bar</span><span class="o">,</span> <span class="n">as</span> <span class="n">no</span> <span class="k">implicit</span> <span class="nc">Show</span><span class="o">[</span><span class="kt">Bar</span><span class="o">]</span> <span class="n">instance</span> <span class="n">is</span> <span class="n">in</span> <span class="n">scope</span><span class="o">.</span>
+<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">21</span><span class="k">:</span> <span class="kt">error:</span> <span class="kt">Cannot</span> <span class="kt">use</span> <span class="kt">the</span> <span class="kt">`z`</span> <span class="kt">interpolator</span> <span class="kt">to</span> <span class="kt">interpolate</span> <span class="kt">a</span> <span class="kt">value</span> <span class="kt">of</span> <span class="k">type</span> <span class="kt">Bar</span><span class="o">,</span> <span class="n">as</span> <span class="n">no</span> <span class="k">implicit</span> <span class="nc">Debug</span><span class="o">[</span><span class="kt">Bar</span><span class="o">]</span> <span class="n">instance</span> <span class="n">is</span> <span class="n">in</span> <span class="n">scope</span><span class="o">.</span>
        <span class="n">z</span><span class="s">"${bar}"</span>
            <span class="o">^</span>
 </code></pre></div></div>
