@@ -6,6 +6,6 @@ docs: true
 collections:
   tut:
     output: true
-version: 8876b9a1+20180604-1915-SNAPSHOT
+version: e493de3e+20180618-1712-SNAPSHOT
 org: org.scalaz
 markdown: kramdown
